@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    
+    <div class="wrapper">
+        <!-- Header -->
+        {% include 'header.html' %}
+        <!-- Content -->
+        {% block content %}
+
+        {% endblock %}
+        
+        <!-- Footer -->
+        {% include 'footer.html' %}
+    </div>
+    
+    <!-- Bloque Javascript-->
+    {% block javascript %}
+
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'list.html' %}
+{% block head_list %}
+
+
+{% endblock %}
+
+{% block columns %}
+
+<tr>
+    <th scope="col">Fecha</th>
+    <th scope="col">Departamento</th>
+    <th scope="col">Distrito</th>
+    <th scope="col">Editar / Eliminar</th>
+</tr>
+
+{% endblock %}
+
+{% block row %}
+{% for obj in object_list %}
+<tr>
+    <td>{{ obj.fechape }}</td>
+    <td>{{ obj.id_depto }}</td>
+    <td>{{ obj.id_distrito }}</td>
+    <td>
+        <img src="{{ request.persona.get_image }}" class="img-fluid d-block mx-auto" style="width: 20px; height: 20px;"
+            alt="none">
+    </td>
+    <td class="text-center">
+        <a href="{% url 'puntoe:puntoe_edit' obj.id %}" class="btn btn-warning btn-xs btn-flat">
+            <i class="fas fa-edit"></i>
+        </a>
+        <a href="{% url 'puntoe:puntoe_delete' obj.id %}" class="btn btn-danger btn-xs btn-flat">
+            <i class="fas fa-trash"></i>
+        </a>
+    </td>
+</tr>
+{% endfor %}
+{% endblock %}
+

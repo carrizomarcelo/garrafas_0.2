@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'img/logo.png'%}" rel="shortcut icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'lib/bootstrap46/css/bootstrap.min.css'%}">
+
+    <title>GARRAFA EN TU BARRIO</title>
+  </head>
+  <body>
+    
+
+    <script src="{% static 'lib/bootstrap46/js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap46/js/bootstrap.bundle.min.js'%}"></script>
+
+  <div class="container-fluid ">
+      <hr>
+    <div class="card text-center">
+        <div class="card-header">
+          Garrfa en tu Barrio
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text text-justify"> <p> Através del programa La Garrafa en tu Barrio se garantiza el derecho de acceso a quienes no tienen gas de red en toda la provincia, subsidiando el precio de la garrafa de 10 kg, por lo que el vecino puede acceder a ella por $300.</p>
+
+          <p>Los interesados en acceder al beneficio deberán concurrir con el envase y llevar fotocopia de DNI y la certificación negativa de la ANSES.A través del programa La Garrafa en tu Barrio se garantiza el derecho de acceso a quienes no tienen gas de red en toda la provincia, subsidiando el precio de la garrafa de 10 kg, por lo que el vecino puede acceder a ella por $300.</p>
+
+          <p>Los interesados en acceder al beneficio deberán concurrir con el envase y llevar fotocopia de DNI y la certificación negativa de la ANSES.</p>
+            
+  
+          <a href="{% url 'login' %}" class="btn btn-primary">Intranet</a>
+        </div>
+        <div class="card-footer text-muted">
+            <strong>2020-2021 <a href="http://www.desarrollosocial.mendoza.gov.ar/planificacion-social/">SPSIS</a></strong>
+        </div>
+      </div>
+<hr>
+  </div>
+
+  </body>
+</html>

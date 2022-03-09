@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="container">
+      <br>
+    <form method="post" action=".">
+        <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-trash"></i>
+                {{ title }}
+                </h3>
+              </div>
+    <div class="card-body">
+      {% csrf_token %}
+        <input type="hidden" name="action" value="{{ action }}">
+        {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas fa-ban"></i><u>Error al procesar los siguientes datos:</u></h5>
+            <ul>
+                {% for field in form %}
+                {% for error in field.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+    <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5 class="row justify-content-center"><i class="icon fas fa-ban"></i>¡ALERTA!</h5>
+        <h5 class="row justify-content-center">¿Elimina - Persona con Documento N° {{ object.nro_dni }}?</h5>
+    </div>
+
+
+
+    </div>
+    
+    <div class="card-footer row justify-content-center">
+      <button type="submit" class="btn btn-sm btn-outline-danger">
+        <i class="fas fa-plus"></i> Si, Aceptar
+      </button>
+
+      &nbsp&nbsp&nbsp<a href="{{ list_url }}" class="btn btn-sm btn-outline-info ">
+        <i class="fas fa-times"></i> Cancelar
+      </a>
+
+    </div>
+</div>
+    </form>
+    <script >
+
+$('form').on('submit', function (e) {
+                e.preventDefault();
+                var parameters = new FormData(this);
+                submit_with_ajax(window.location.pathname, parameters, function(){
+                    location.href = '{{ list_url }}';
+                });
+      // $('form').on('submit', function (e) {
+      //                 e.preventDefault();
+      //                 var parameters = $(this).serializeArray();
+      //                 $.ajax({
+      //                     url: window.location.pathname,
+      //                     type: 'POST',
+      //                     data: parameters,
+      //                     dataType: 'json'
+      //                 }).done(function (data) {
+      //                     console.log(data);
+      //                     if (!data.hasOwnProperty('error')) {
+      //                         location.href = '{{ list_url }}';
+      //                         return false;
+      //                     }
+      //                     message_error(data.error);
+      //                 }).fail(function (jqXHR, textStatus, errorThrown) {
+      //                     alert(textStatus + ': ' + errorThrown);
+      //                 }).always(function (data) {
+          
+      //                     });
+                       });     
+      </script> 
+    </div>
+{% endblock %}

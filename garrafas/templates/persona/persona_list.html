@@ -1,0 +1,48 @@
+{% extends 'list.html' %}
+{% load static %}
+{% block head_list %}
+
+{% endblock %}
+
+{% block columns %}
+
+    <tr>
+      <th scope="col">Nro Documento</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Departamento</th>
+      <th scope="col">DNI F.</th>
+      <th scope="col">DNI D.</th>
+      <th scope="col">Editar / Eliminar</th>
+    </tr>
+
+{% endblock %}
+
+{% block rows %}
+{% for obj in object_list %}
+        <tr>
+            <td>{{ obj.nro_dni }}</td>
+            <td>{{ obj.apellido }}</td>
+            <td>{{ obj.nombre }}</td>
+            <td>{{ obj.departamento_id}}</td>
+            <td>
+            <img src="{{ obj.get_image1 }}" class="img-fluid d-block mx-auto" style="width: 20px; height: 20px;">
+            </td>
+            <td>
+                <img src="{{ obj.get_image2 }}" class="img-fluid d-block mx-auto" style="width: 20px; height: 20px;">
+                </td>
+            <td class="text-center">
+                <a href="{% url 'persona:persona_edit' obj.id %}#" class="btn btn-warning btn-xs btn-flat">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{% url 'persona:persona_delete' obj.id %}" class="btn btn-danger btn-xs btn-flat">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+
+    
+
+
